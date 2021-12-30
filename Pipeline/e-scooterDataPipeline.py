@@ -61,7 +61,7 @@ with DAG(
             sys.exit()
         df = pd.read_csv(cleanedScooter)
         #drop unnecessary columns
-        df.drop(columns=region_id,inplace=True)
+        df.drop(columns='region_id',inplace=True)
 
         if os.path.exists(mayScooter):
             os.remove(mayScooter)

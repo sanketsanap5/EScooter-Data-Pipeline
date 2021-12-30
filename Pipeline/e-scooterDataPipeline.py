@@ -20,8 +20,9 @@ with DAG(
     schedule_interval = '@once'
 ) as dag:
 
-    baseDir = '/Users/Sanket/Documents/GitHub/Real-Time-Data-Pipeline/dataset'
-    escooter = baseDir + '/scooter.csv'
+    baseDir = '/Users/Sanket/Documents/GitHub/Real-Time-Data-Pipeline'
+    outputDir = baseDir + '/output'
+    escooter = baseDir + '/dataset/scooter.csv'
     cleanedScooter = 'cleanedScooterData.csv'
     mayScooter = 'MayScooterData.csv'
     juneScooter = 'JuneScooterData.csv'
@@ -79,7 +80,9 @@ with DAG(
 
 
     def loadFilesIntoDirectory():
-        monthlyDataDir = baseDir + '/monthlyData'
+        monthlyDataDir = outputDir + '/monthlyData'
+        if not os.path.exists(outputDir):
+            os.mkdir(outputDir)
         if not os.path.exists(monthlyDataDir):
             os.mkdir(monthlyDataDir)
         if os.path.exists(mayScooter):

@@ -81,16 +81,19 @@ with DAG(
     def loadFilesIntoDirectory():
         monthlyDataDir = baseDir + '/monthlyData'
         if not os.path.exists(monthlyDataDir):
-            print('No File Found !!!')
-            sys.exit()
+            os.mkdir(monthlyDataDir)
         if os.path.exists(mayScooter):
-            os.system('cp '+ mayScooter + ' ' + baseDir + '/' + mayScooter)
+            os.system('cp '+ mayScooter + ' ' + monthlyDataDir + '/' + mayScooter)
         if os.path.exists(juneScooter):
-            os.system('cp '+ juneScooter + ' ' + baseDir + '/' + juneScooter)
+            os.system('cp '+ juneScooter + ' ' + monthlyDataDir + '/' + juneScooter)
         if os.path.exists(julyScooter):
-            os.system('cp '+ julyScooter + ' ' + baseDir + '/' + julyScooter)
+            os.system('cp '+ julyScooter + ' ' + monthlyDataDir + '/' + julyScooter)
         
-        if os.path.exists(baseDir + '/' + julyScooter):
+        if os.path.exists(monthlyDataDir + '/' + julyScooter):
+            os.remove(cleanedScooter)
+            os.remove(mayScooter)
+            os.remove(juneScooter)
+            os.remove(julyScooter)
             print('-------------------------- Files Loaded ----------------------------')
         else:
             print('------------------!!! Files Transfer Failed !!!---------------------')

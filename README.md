@@ -1,4 +1,4 @@
-# Real-Time-Data-Pipeline
+# EScooter-Automated-Data-Pipeline
 
 ## Technology Stack:
 

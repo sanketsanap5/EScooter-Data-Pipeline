@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from airflow import DAG
 from airflow.operators.bash import BashOperator
-from airflow.operators.python import PythonOperator, task
+from airflow.operators.python import PythonOperator
 
 import pandas as pd
 import psycopg2 as db

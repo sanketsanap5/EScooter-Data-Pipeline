@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from airflow import DAG
 from airflow.operators.bash import BashOperator
-from airflow.operators.python import PythonOperator
+from airflow.operators.python import PythonOperator, task
 
 import pandas as pd
 import psycopg2 as db
@@ -19,8 +19,7 @@ deafult_args = {
 with DAG(
     'MyDBDAG',
     default_args = deafult_args,
-    schedule_interval = timedelta(minutes=2)
-    # '0****',
+    schedule_interval = "@once"
 ) as dag:
 
     def queryPostgres():
@@ -35,7 +34,7 @@ with DAG(
         df = pd.read_csv('postgresData.csv')
         for i,r in df.iterrows():
             doc = r.to_json()
-            res = es.index(index="PostgresUsers",document=doc)
+            res = es.index(index="postgresusers",document=doc)
             print(res['result'])
         print('-------------- Data Loaded --------------')
         

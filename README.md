@@ -1,4 +1,4 @@
-# EScooter-Automated-Data-Pipeline
+# EScooter-Data-Pipeline
 
 ## Technology Stack:
 
@@ -51,7 +51,7 @@
  
   2. Move source code .py file in ~/Airflow/dags directory
 
-          $ mv EScooter-Automated-Data-Pipeline/Pipeline/e-scooterPipelineSpark.py    ~/Airflow/dags
+          $ mv EScooter-Data-Pipeline/Pipeline/e-scooterPipelineSpark.py    ~/Airflow/dags
           
   3. Start Elastic Search database instance
 

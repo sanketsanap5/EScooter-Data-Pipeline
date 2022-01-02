@@ -9,7 +9,7 @@ import pandas as pd
 
 deafult_args = {
     'owner' : 'sanket',
-    'start_date' : dt.datetime(2021,12,29),
+    'start_date' : dt.datetime(2022,1,1),
     'retries' : 1,
     'retry_delay' : dt.timedelta(minutes=2)
 }

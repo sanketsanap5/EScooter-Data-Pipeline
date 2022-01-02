@@ -15,7 +15,7 @@ from elasticsearch import helpers
 
 deafult_args = {
     'owner' : 'sanket',
-    'start_date' : dt.datetime(2021,12,31),
+    'start_date' : dt.datetime(2022,1,1),
     'retries' : 1,
     'retry_delay' : dt.timedelta(minutes=2)
 }
@@ -38,8 +38,8 @@ with DAG(
         if os.path.exists(userDataDir):
             fileNames = [x for x in os.listdir(userDataDir) if x.endswith('.json')]
             for name in fileNames:
-                if os.path.exists(name):
-                    os.remove(name)
+                if os.path.exists(userDataDir+name):
+                    os.remove(userDataDir+name)
         else:
             os.mkdir(userDataDir)
         
@@ -141,8 +141,8 @@ with DAG(
         if df['_source.id'].value_counts().values==1:
             fileNames = [x for x in os.listdir(userDataDir) if x.endswith('.json')]
             for name in fileNames:
-                if os.path.exists(name):
-                    os.remove(name)
+                if os.path.exists(userDataDir+name):
+                    os.remove(userDataDir+name)
             print('--------------------- User Data Directory Cleaned ----------------------')
         else:
             print('-----------------------!!! Could Not Clean Data Directories !!!----------------------')

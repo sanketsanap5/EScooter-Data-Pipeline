@@ -8,6 +8,7 @@ import pandas as pd
 from pandas import json_normalize
 import psycopg2 as db
 import os,sys
+
 from faker import Faker
 
 from elasticsearch import Elasticsearch

@@ -45,4 +45,54 @@
 
  
   
+## Execution Steps
+
+  1. Install Apache Airflow, Postgres, pgAdmin 4, ElasticSearch, Kibana, Python3, Pandas, PySpark, psycopg2
+ 
+  2. Move source code .py file in ~/Airflow/dags directory
+
+          $ mv EScooter-Automated-Data-Pipeline/Pipeline/e-scooterPipelineSpark.py    ~/Airflow/dags
+          
+  3. Start Elastic Search database instance
+
+          $ cd elasticsearch-7.16.2/
+          
+          $ bin/elasticsearch
   
+  4. Start Kibana GUI instance
+
+          $ kibana
+         
+  5. Open Kibana GUI dashborad
+  
+          open https://localhost:5601/ and navigate to dashboard under left panel
+
+  6. Start Spark Master node instance
+
+          $ cd ~/Spark/master-node/sbin/
+          
+          $ ./start-master.sh
+          
+  7. Start Spark Worker node instance
+  
+          $ cd ~/Spark/worker-node/sbin/
+          $ ./start-worker.sh spark://Sankets-MacBook-Air.local:7077 -p 9911
+
+  8. Run Apache Airflow webserver
+ 
+          $ airflow webserver
+   
+  9. Run Apache Airflow scheduler
+
+          $ airflow scheduler
+    
+  10. Open Airflow GUI and start pipeline to start execution
+
+          Open https://localhost:8080/   - Master Node
+          
+          Open https://localhost:8081/   - Worker Node
+          
+          Turn on green button infront of 'e-scooterSparkPipeline' to start workflow and montior
+          
+  
+   

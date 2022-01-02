@@ -28,7 +28,7 @@
   
 ## Solution
 
-  In order to achieve automated data pipeline which will load transactional data into warehouse,
+  > In order to achieve automated data pipeline which will load transactional data into warehouse
   1. First of all we need to clean the data by performing **ETL** operations with the help of **Pandas** library and put cleaned data in **staging** database 
       which would be **Postgres** in this case.
   3. Once data is loaded successfully in staging db, we will process and validate data in distributed way and parallely with the help of **PySpark** library with
@@ -37,7 +37,7 @@
       index as per requirement
   4. Once all done, we will clean the data directory and copy the staging files i.e. CSV, JSON into final directory
 
- All above steps will be executed one after another efficiently with the help of **Apache Airflow** tool, we will create a DAG and respective python process, 
+ All above steps will be executed one after another efficiently with the help of **Apache Airflow** tool, we will create a **DAG** and respective python process, 
  where each process will perform single task in ordered manner one after another with the help of **PythonOperator**
  
  The final result is we have a automated pipeline which perfoms **ETL** operations with help of **Pandas** and load data into staging database **Postgres** and
